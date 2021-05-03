@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{person.name}}——————{{person.age}}</h2>
+        <h3>{{person.fav}}</h3>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <h3>{{msg}}</h3>
+        <div v-text="msg"></div>
+        <div v-text="person.fav"></div>
+        <input type="text" v-model="msg">
+        <button v-on:click="fun">v-on点击</button>
+        <button @click="fun">@点击</button>
+        <div v-html="htmlStr"></div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="js/Observer.js"></script>
+    <script src="js/Vue.js"></script>
+    <script>
+        let vm = new Vue ({
+            el: "#app",
+            data: {
+                person: {
+                    name: "小明",
+                    age: 18,
+                    fav: "姑娘"
+                },
+                msg: "学习MVVM原理",
+                htmlStr: "<h1>一</h1>"
+            },
+            methods: {
+                fun () {
+                    console.log ("你好", this);
+                    this.person.name = "里斯";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
